@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     get '/signup' do
-        erb :"users/new"
+        erb :"users/sign_up"
     end
 
     post '/users' do
@@ -13,4 +13,5 @@ class UsersController < ApplicationController
             erb :"users/new"
         end
     end
+
 end
