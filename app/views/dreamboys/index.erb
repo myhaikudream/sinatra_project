@@ -1,0 +1,9 @@
+<h1>Dream Boys</h1>
+<h4>List of Male Bias Idols</h4>
+
+<% @dreamboys.each do |dreamboy| %>
+<h3><%= dreamboy.idol.stage_name  %></h3>
+<h4> Notes <%= dreamboy.notes %></h4>
+<h3><a href="/idols/<%= dreamboy.idol.id %>/dreamboys/<%= dreamboy.id %>/edit">Edit Notes</a></h3>
+
+<% end %>

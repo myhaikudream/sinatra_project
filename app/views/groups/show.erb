@@ -1,5 +1,9 @@
-<h1><%= @group.name %></h1>
-
+<h1><%= @group.name %></h1><br>
+<br>
+<h2> Fandom Name: <%= @group.fandom_name %> </h2>
+<h2> Debut Date: <%= @group.debut_date %> </h2>
+<br>
+<br>
 <% @group.idols.each do |idol| %>
-<h2><a href="/idols/<%= idol.id %>"><%= idol.stage_name %></a></h2>
+<h3><a href="/idols/<%= idol.id %>"><%= idol.stage_name %></a></h3>
 <% end %>
