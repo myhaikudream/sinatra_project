@@ -1,0 +1,5 @@
+<h1><%= @group.name %></h1>
+
+<% @group.idols.each do |idol| %>
+<h2><a href="/idols/<%= idol.id %>"><%= idol.stage_name %></a></h2>
+<% end %>

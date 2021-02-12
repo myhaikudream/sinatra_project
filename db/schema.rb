@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210202212719) do
+ActiveRecord::Schema.define(version: 20210211201345) do
+
+  create_table "dreamboys", force: :cascade do |t|
+    t.string "idol_id"
+    t.string "user_id"
+    t.string "notes"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -29,12 +35,6 @@ ActiveRecord::Schema.define(version: 20210202212719) do
     t.string  "nickname"
     t.string  "famous_quote"
     t.integer "group_id"
-  end
-
-  create_table "user_idols", force: :cascade do |t|
-    t.string "idol_id"
-    t.string "users_id"
-    t.string "notes"
   end
 
   create_table "users", force: :cascade do |t|

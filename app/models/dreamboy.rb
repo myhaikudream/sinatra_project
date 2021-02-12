@@ -1,5 +1,4 @@
-class UserIdol  < ActiveRecord::Base 
+class Dreamboy < ActiveRecord::Base
     belongs_to :user
     belongs_to :idol
-
 end

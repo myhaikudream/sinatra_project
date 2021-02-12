@@ -1,3 +1,3 @@
 class Group < ActiveRecord::Base
-    belongs_to :idol 
+    has_many :idols 
 end
