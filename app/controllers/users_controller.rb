@@ -3,14 +3,20 @@ class UsersController < ApplicationController
         erb :"users/sign_up"
     end
 
-    post '/users' do
-        @user = User.new
+    post '/signup' do
+        @user = User.new(params)
         @user.email = params[:email]
         @user.password = params[:password]
-        if @user.save
-            redirect '/login'
+        if @user.username.empty? || @user.password.empty?
+            @error ="Username and password must be filled."
+            erb :'/users/signup'
+        elsif User.find_by(username: @user.username)
+            @error = "This username is already in use."
+            erb :'/users/signup'
         else
-            erb :"users/new"
+            @user.save
+            session[:user_id] = @user.id 
+            redirect '/groups'
         end
     end
 

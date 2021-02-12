@@ -10,8 +10,7 @@ class DreamboysController < ApplicationController
         erb :'dreamboys/new'
     end
 
-    post "/idols/:idol_id/dreamboys/new" do
-      
+    post "/idols/:idol_id/dreamboys/new" do      
         @dreamboy = Dreamboy.new(params)
         @dreamboy.user_id = session[:user_id]
         dreamboy.save
