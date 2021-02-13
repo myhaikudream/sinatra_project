@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     post '/signup' do
         @user = User.new(params)
-        @user.email = params[:email]
+        @user.username = params[:username]
         @user.password = params[:password]
         if @user.username.empty? || @user.password.empty?
             @error ="Username and password must be filled."
@@ -19,5 +19,5 @@ class UsersController < ApplicationController
             redirect '/groups'
         end
     end
-
 end
+

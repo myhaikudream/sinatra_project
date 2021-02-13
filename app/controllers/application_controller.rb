@@ -1,4 +1,3 @@
-
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
@@ -13,5 +12,20 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :welcome
   end
-  
+
+  helpers do 
+    def logged_in? 
+      !!current_user
+    end
+
+    def current_user
+      User.find_by(id: session[:user_id])
+    end
+
+    def logout!
+      session.clear
+    end
+
+  end
+
 end
