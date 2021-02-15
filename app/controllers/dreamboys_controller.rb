@@ -28,7 +28,6 @@ end
     get "/idols/:idol_id/dreamboys/:id/edit" do
         if logged_in?
             @idol = Idol.find(params[:idol_id])
-            
             @dreamboy = Dreamboy.find(params[:id])
             if  @dreamboy.user_id == current_user.id 
                 erb :'dreamboys/edit'
@@ -44,7 +43,8 @@ end
 
     patch "/idols/:idol_id/dreamboys/:id" do
         @dreamboy = Dreamboy.find(params[:id])
-        @dreamboy.update(params)
+        @dreamboy.update(notes: params[:notes])
+        redirect '/dreamboys'
     end
 
     delete  "/idols/:idol_id/dreamboys/:id" do

@@ -1,5 +1,5 @@
 <h1>Edit Bias Rank</h1>
-<form action="/idols/<%= dreamboy.idol.id %>/dreamboys/<%= dreamboy.id %>/edit" method="post">
+<form action="/idols/<%= @dreamboy.idol.id %>/dreamboys/<%= @dreamboy.id %>" method="post">
 <input id="hidden" type="hidden" name="_method" value="patch">
 <label> New Rank </label>
 <input type="text" name="notes">

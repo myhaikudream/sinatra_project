@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20210211201345) do
 
   create_table "dreamboys", force: :cascade do |t|
-    t.string "idol_id"
-    t.string "user_id"
-    t.string "notes"
+    t.integer "idol_id"
+    t.integer "user_id"
+    t.string  "notes"
   end
 
   create_table "groups", force: :cascade do |t|
