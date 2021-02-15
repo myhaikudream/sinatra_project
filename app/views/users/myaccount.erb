@@ -1,0 +1,14 @@
+<div><a href="/homepage">Home</a></div>
+<div><a href="/groups">Groups</a></div>
+<div><a href="/dreamboys">Bias List</a></div>
+<div><a href="/logout">Log Out</a></div>
+
+
+<h1> My Account </h1>
+
+<h4> Username: <%= current_user.username %></h4>
+
+<form action="/myaccount" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <button type="submit"> Delete this account</button>
+  </form> 

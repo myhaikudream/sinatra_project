@@ -16,8 +16,22 @@ class UsersController < ApplicationController
         else
             @user.save
             session[:user_id] = @user.id 
-            redirect '/groups'
+            redirect '/homepage'
         end
     end
+
+    get '/myaccount' do
+        if logged_in?
+            erb :'/users/myaccount'
+        else
+            redirect '/login'
+        end
+    end
+
+    delete  "/myaccount" do
+            current_user.destroy 
+            redirect '/'
+    end
+
 end
 
