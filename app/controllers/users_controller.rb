@@ -9,10 +9,10 @@ class UsersController < ApplicationController
         @user.password = params[:password]
         if @user.username.empty? || @user.password.empty?
             @error ="Username and password must be filled."
-            erb :'/users/signup'
+            erb :'users/signup'
         elsif User.find_by(username: @user.username)
             @error = "This username is already in use."
-            erb :'/users/signup'
+            erb :'users/signup'
         else
             @user.save
             session[:user_id] = @user.id 
