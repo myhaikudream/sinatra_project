@@ -5,21 +5,19 @@ class SessionsController < ApplicationController
     end
 
     post '/login' do 
-        if params["username"].empty? || params["password"].empty?
+        user = User.find_by(:username => params[:username])
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect '/homepage'
+       
+        elsif params["username"].empty? || params["password"].empty?
             @error = "Username and password can't be blank."
             erb :'users/login'
-
-        else
-            if user = User.find_by(username: params["username"], password: params["password"])
-                session[:user_id] = user.id
-                redirect '/homepage'
-            
-            else
-                @error = "Something went wrong. Please try again."
-                erb :'users/login'
-            end
+        else 
+           @error = "Something went wrong. Please try again."
+           erb :'users/login'
         end
-    end
+
 
 
     get '/logout' do 

@@ -13,22 +13,13 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  get "/homepage" do
-    erb :homepage
-  end
-
-  
-
   helpers do 
     def logged_in? 
       !!current_user
     end
 
     def current_user
-      user = User.find_by(:username => params[:username])
-      if user && user.authenticate(params[:password])
-        session[:user_id] = user.id
-      end
+      User.find_by(id: session[:user_id])
     end
 
     def logout!
