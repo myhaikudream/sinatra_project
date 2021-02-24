@@ -12,10 +12,10 @@ class SessionsController < ApplicationController
         else
             if user = User.find_by(username: params["username"], password: params["password"])
                 session[:user_id] = user.id
-                redirect '/groups'
+                redirect '/homepage'
             
             else
-                @error = "This account doesn't exist."
+                @error = "Something went wrong. Please try again."
                 erb :'users/login'
             end
         end
