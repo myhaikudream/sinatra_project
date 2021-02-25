@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
         if user && user.authenticate(params[:password])
             session[:user_id] = user.id
             redirect '/homepage'
+            erb :homepage 
        
         elsif params["username"].empty? || params["password"].empty?
             @error = "Username and password can't be blank."
@@ -17,6 +18,7 @@ class SessionsController < ApplicationController
            @error = "Something went wrong. Please try again."
            erb :'users/login'
         end
+    end
 
 
 
